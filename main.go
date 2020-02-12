@@ -2,6 +2,7 @@ package main
 
 import (
 	"bytes"
+	"encoding/base64"
 	"encoding/json"
 	"flag"
 	"fmt"
@@ -9,7 +10,6 @@ import (
 	"github.com/go-redis/redis/v7"
 	"io/ioutil"
 	"net/http"
-	"net/url"
 	"time"
 )
 
@@ -68,7 +68,8 @@ func main() {
 			return
 		}
 
-		longUrl, err := url.QueryUnescape(longUrl)
+		_longUrl, _ := base64.StdEncoding.DecodeString(longUrl)
+		longUrl = string(_longUrl)
 		res.LongUrl = longUrl
 
 		// 先查缓存
