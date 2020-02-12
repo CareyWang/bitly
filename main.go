@@ -77,6 +77,7 @@ func main() {
 		if 1 == *cache {
 			_shortUrl, err := redisClient.Get(longUrl).Result()
 			if err == nil && _shortUrl != "" {
+				res.Code = 1
 				res.ShortUrl = _shortUrl
 				c.JSON(200, res)
 				return
