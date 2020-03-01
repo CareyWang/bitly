@@ -4,12 +4,23 @@
 
 ## Table of Contents
 
+- [Update](#update)
 - [Install](#install)
 - [Usage](#usage)
 - [API](#api)
 - [Maintainers](#maintainers)
 - [Contributing](#contributing)
 - [License](#license)
+
+## Update
+
+- 20200301
+
+  现在你可以使用 docker 运行服务。
+
+  ```shell
+  docker run -d -p 8001:8001 --name bitly --restart always careywong/bitly:latest -token xxxxxxxxxxxxxxxxxxxxx
+  ```
 
 ## Install
 
