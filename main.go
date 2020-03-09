@@ -53,7 +53,7 @@ func main() {
 		panic("Bitly api token is required.")
 	}
 
-	router.GET("/", func(c *gin.Context) {
+	router.POST("/", func(c *gin.Context) {
 		res := &Response{
 			Code:     0,
 			Message:  "",
@@ -61,7 +61,7 @@ func main() {
 			ShortUrl: "",
 		}
 
-		longUrl := c.Query("longUrl")
+		longUrl := c.PostForm("longUrl")
 		if longUrl == "" {
 			res.Message = "longUrl为空"
 			c.JSON(400, *res)
